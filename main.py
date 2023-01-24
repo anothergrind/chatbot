@@ -78,13 +78,13 @@ sub_topic_responses = {
 }		
 		
 def topic_route():
-    first_topic = input("What main topic do you want to talk about? " + str(list(topics.keys)))
+    first_topic = input("What main topic do you want to talk about? " + str(list(topics.keys())))
     if first_topic in topics:
         sub_topic_route(first_topic)
     else: 
         print("Sorry, I don't understand yout input. Please choose a topic form the list")
         topic_route()
-    
+
 def sub_topic_route(main_topic):
     print("Here are the subtopics for " + main_topic + ": " + str(topics[main_topic]))
     sub_topic = input("Which subtopic would you like to discuss? ")
