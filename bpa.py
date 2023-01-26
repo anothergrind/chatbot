@@ -63,4 +63,28 @@ while True:
         elif search_criteria == "color":
             print("What color are you interested in searching for?")
             color = input()
+            found = True 
+            for car in inventory: 
+                if car("color") == color:
+                    print(f"{car['make']} {car['model']} {car['year']} {car['price']}")
+                    found = True
+            if not found: 
+                print(f"Sorry, we don't have any cars in {color} in our inventory.")
+        elif search_criteria == "price":
+            print("What price range are you interested in searching for? (ega. 10000-20000)")
+            price_range = input()
+            found = False
+            min_price, max_price = price_range.split("-")
+            for car in inventory: 
+                if int(min_price) <= car["price"] <= int(max_price):
+                    print(f"{car['make']} {car['model']} {car['year']} {car['price']}")
+                    found = True
+                if not found:
+                    print(f"Sorry, we don't have any cars in the price range of {price_range} in our inventory.")
+        elif "quit" in user_input:
+            print("Thank you for using our chatbot. Have a great day")
+            break
+    else:
+        print("I'm sorry, I didn't understanding your request. Please try again")
+
                 
